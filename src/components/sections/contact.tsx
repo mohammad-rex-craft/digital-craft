@@ -33,7 +33,7 @@ const ContactSection = () => {
                 </div>
                 <div className={'md:w-1/2 w-full flex flex-col text-white'}>
                     <h4 className={'text-[15px] md:text-[20px] xl:text-[30px]'}>Start A Conversation With Us</h4>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className={''}>
                         <div className="mb-4">
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                                 Name*

@@ -64,6 +64,8 @@ const Nav = () => {
                             <Link href={'/'} className={'hover:text-lightBlue '}>Work</Link>
                             <Link href={'/'} className={'hover:text-lightBlue '}>About</Link>
                             <Link href={'/'} className={'hover:text-lightBlue '}>Services</Link>
+                            <Link href={'/auth/login'} className={'hover:text-lightBlue '}>Log in</Link>
+
                         </div>
                         <div className={'p-2 hidden sm:block text-[15px] md:text-[18px] xl:text-[20px]'}>
                             <div className={'border-2  border-lightBlue  hover:bg-lightBlue hover: rounded-full px-10 pt-1 pb-2'}><Link href={'/'}>Contact</Link></div>
@@ -78,6 +80,7 @@ const Nav = () => {
                         <Link href={'/'} className={'hover:text-lightBlue '}>Work</Link>
                         <Link href={'/'} className={'hover:text-lightBlue '}>About</Link>
                         <Link href={'/'} className={'hover:text-lightBlue '}>Services</Link>
+                        <Link href={'/'} className={'hover:text-lightBlue '}>Log in</Link>
                         <div className={'p-2 text-[15px] md:text-[18px] xl:text-[20px]'}>
                             <div className={'border-2  border-lightBlue  hover:bg-lightBlue hover: rounded-full px-10 pt-1 pb-2'}><Link href={'/'}>Contact</Link></div>
                         </div>
