@@ -45,7 +45,7 @@ const page = ()=>{
                 </div>
                 <h2 className={'text-[40px] font-[BoldItalicArt] z-20'}>digitalcraft200223@</h2>
                 <div className="w-full max-w-[400px] z-20">
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                         Email :
                     </label>
                     <input
@@ -58,7 +58,7 @@ const page = ()=>{
                     />
                 </div>
                 <div className=" w-full max-w-[400px] z-20">
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
                         Password :
                     </label>
                     <input
