@@ -8,6 +8,7 @@ import {useEffect, useState} from 'react'
 import {database} from "@/databese/firebase";
 import LoadingIcon from "@/components/icon/loadingIcon";
 import WordEdit from "@/components/dashboard/wordEdit";
+import {useData} from "@/hook/getData";
 interface DataItem {
     name: string;
     url: string;
@@ -20,40 +21,15 @@ const Page = () => {
     const [frontImage, setFrontImage] = useState<FilePondFile[]>([])
     const [backImage, setBackImage] = useState<FilePondFile[]>([])
     const [loading,setLoading] = useState(false)
-    const [dataList, setDataList] = useState<DataItem[]>([])
 
     let [dataForm,setData] = useState({
         name:"",
         url:"",
         description:""
     })
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true)
-                const dataRef = ref(database, 'data')
-                const response = await fetch(dataRef.toString() + '.json')
-                const data = await response.json()
+    let { dataList, error } = useData()
 
-                if (data) {
-                    // تحويل البيانات إلى مصفوفة مع الحفاظ على الـ ID
-                    const dataArray = Object.keys(data).map(key => ({
-                        ...data[key],
-                        id: key
-                    }))
-                    setDataList(dataArray)
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error)
-            } finally {
-                setLoading(false)
-            }
-        }
 
-        fetchData()
-    }, [])
-
-    console.log(dataList)
     const handleSubmit = async () => {
         if (!frontImage[0]?.file || !backImage[0]?.file) {
             alert('Please upload both front and back images.');
@@ -149,7 +125,7 @@ const Page = () => {
                 </div>
             </div>
             <div className={'w-full my-32'}>
-                 <WordEdit data={dataList} setDataList={setDataList} setLoading={setLoading} />
+                 <WordEdit data={dataList} setLoading={setLoading} />
             </div>
         </div>
     )

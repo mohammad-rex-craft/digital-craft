@@ -10,7 +10,7 @@ interface DataItem {
     description: string;
     id?: string;
 }
-const WordEdit =({data,setLoading,setDataList}:{data:DataItem[],setLoading:any,setDataList:any})=>{
+const WordEdit =({data,setLoading}:{data:DataItem[],setLoading:any})=>{
 
     const handleDelete = async (id: string) => {
         if (!confirm('Are you sure you want to delete this item?')) return
@@ -21,7 +21,6 @@ const WordEdit =({data,setLoading,setDataList}:{data:DataItem[],setLoading:any,s
             await remove(itemRef)
 
             // تحديث القائمة المحلية
-            setDataList(data.filter(item => item.id !== id))
         } catch (error) {
             console.error("Error deleting item:", error)
             alert("An error occurred while deleting item.")
