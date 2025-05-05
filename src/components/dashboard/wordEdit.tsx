@@ -12,6 +12,13 @@ interface DataItem {
 }
 const WordEdit =({data,setLoading}:{data:DataItem[],setLoading:any})=>{
 
+
+
+
+
+
+
+
     const handleDelete = async (id: string) => {
         if (!confirm('Are you sure you want to delete this item?')) return
 
@@ -25,6 +32,7 @@ const WordEdit =({data,setLoading}:{data:DataItem[],setLoading:any})=>{
             console.error("Error deleting item:", error)
             alert("An error occurred while deleting item.")
         } finally {
+            window.location.reload();
             setLoading(false)
         }
     }
@@ -51,3 +59,8 @@ const WordEdit =({data,setLoading}:{data:DataItem[],setLoading:any})=>{
 }
 
 export default WordEdit
+
+
+
+
+

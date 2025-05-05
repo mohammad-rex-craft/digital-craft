@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "craft-rex-date-picker-stander": "^0.1.0",
-    "craft-rex-selector": "^0.2.3",
+    "craft-rex-selector": "^0.2.6",
     "dayjs": "^1.11.13",
     "fancy-cursor": "^0.1.6",
     "filepond": "^4.32.7",
