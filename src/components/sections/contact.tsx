@@ -1,5 +1,6 @@
 'use client'
 import {useState} from "react";
+import emailjs from 'emailjs-com';
 
 
 const ContactSection = () => {
@@ -10,7 +11,7 @@ const ContactSection = () => {
         message: ''
     });
 
-    const handleChange = (e:any) => {
+    const handleChange = (e: any) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
@@ -18,9 +19,28 @@ const ContactSection = () => {
         }));
     };
 
-    const handleSubmit = (e:any) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
+
+        // استبدل هذه القيم بمعلومات حساب EmailJS الخاص بك
+        const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID??"";
+        const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID??"";
+        const userID = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
+
+        emailjs.send(serviceID, templateID, {
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            to_email: 'mohammad123alhalabi123@gmail.com' // سيتم إرسال البريد إلى هذا العنوان
+        }, userID)
+            .then((response) => {
+                console.log('Email sent successfully!', response.status, response.text);
+                alert('تم إرسال الرسالة بنجاح!');
+            }, (error) => {
+                console.error('Failed to send email:', error);
+                alert('فشل إرسال الرسالة، يرجى المحاولة مرة أخرى.');
+            });
     };
     return (
         <div className={'py-32 px-12 sm:px-20 lg:px-32 w-full'} style={{background: "linear-gradient(to bottom, #333331 0%, #121738 5%, #2D398B 100%);"}}>
