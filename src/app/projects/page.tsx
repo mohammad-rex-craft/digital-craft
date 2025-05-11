@@ -3,6 +3,7 @@ import {useData} from "@/hook/getData";
 import Cards from "@/components/Cards";
 import {useRouter} from "next/navigation";
 import LoadingIcon from "@/components/icon/loadingIcon";
+import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 
 
 const page = ()=>{
@@ -23,7 +24,13 @@ const page = ()=>{
                         Have a sneak peek at some of our recent work delivered to our esteemed global clients belonging to various industry verticals. Get a feel for the innovative, quality-rich product you will receive when you collaborate with JPLoft as your trusted technology partner for your web and app development project
                     </p>
                     <div  className={'w-full grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  justify-items-center mb-10'}>
-                        {loading?<LoadingIcon className={'w-10 h-10 stroke-white'}/>:dataList.map((item, index) => (
+                        {loading?
+                            [1,2,3].map((index)=>(
+                                        <SkeletonTheme key={index} baseColor="#202020" highlightColor="#444" width={'200px'} height={'200px'} >
+                                                <Skeleton count={3}/>
+                                        </SkeletonTheme>
+                                    ))
+                                    :dataList.map((item, index) => (
                             <div onClick={()=>handleCardClick(item.id!)} key={index} className={'flex flex-col relative  group cursor-pointer'}>
                                 <Cards
                                     imageOne={item.frontImg}

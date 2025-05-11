@@ -15,18 +15,90 @@ const Page = () => {
     const [frontImage, setFrontImage] = useState<FilePondFile[]>([])
     const [backImage, setBackImage] = useState<FilePondFile[]>([])
     const [detielsImage, setDetielsImage] = useState<FilePondFile[]>([])
+    const [selectorData,setSelectorData] = useState<string[]>([])
 
     const [loading,setLoading] = useState(false)
 
     let [dataForm,setData] = useState({
         name:"",
         url:"",
-        code:[],
         description:""
     })
     let { dataList, error } = useData()
+    const codes = [
+        {
+            code :"Html",
+            color:'#e4552e'
+        },
+        {
+            code :"Css",
+            color: "#1c76b8"
+        },
+        {
+            code :"Tailwind",
+            color:'#08bbd9'
+        },
+        {
+            code :"Js",
+            color:"#ebcc37"
+        },
+        {
+            code :"Ts",
+            color:"#377cc8"
+        },
+        {
+            code :"jQuery",
+            color:"#1c334a"
+        },
+        {
+            code :"BootStrap",
+            color:"#7818f7"
+        },
+        {
+            code :"laravel",
+            color:"#f5360b"
+        },
+        {
+            code :"php",
+            color:"#7b7fb5"
+        },
+        {
+            code :"Sql",
+            color:"#e07127"
+        },
+        {
+            code :"ShadCn",
+            color:"black"
+        },
+        {
+            code :"Material ui",
+            color:"#08b2ff"
+        },
+        {
+            code :"Ai",
+            color:"#0a0a46"
+        },
+        {
+            code :"nodeJs",
+            color:"#8fc708"
+        },
+        {
+            code:"Figma",
+            color:"#f25425"
+        },
+        {
+            code:"React js",
+            color:"#66dbfb"
+        },
+        {
+            code:"Next js",
+            color:"black"
+        },
 
-
+    ]
+    let codeSelected = codes?.filter(item =>
+        selectorData.some(code => item.code.toLowerCase() === code.toLowerCase())
+    );
     const handleSubmit = async () => {
         if (!frontImage[0]?.file || !backImage[0]?.file || !detielsImage[0]?.file) {
             alert('Please upload both front and back images.');
@@ -58,7 +130,7 @@ const Page = () => {
                 detielsImg:detielsBase64,
                 frontImg: frontBase64,
                 backImg: backBase64,
-                code: dataForm.code,
+                code: codeSelected,
                 description: dataForm.description
             };
             const dataRef = ref(database, 'data');
@@ -84,60 +156,8 @@ const Page = () => {
         }
     };
 
-    const codes = [
-        {
-            code :"Html"
-        },
-        {
-            code :"Css"
-        },
-        {
-            code :"Tailwind"
-        },
-        {
-            code :"Js"
-        },
-        {
-            code :"Ts"
-        },
-        {
-            code :"jQuery"
-        },
-        {
-            code :"BootStrap"
-        },
-        {
-            code :"laravel"
-        },
-        {
-            code :"php"
-        },
-        {
-            code :"Sql"
-        },
-        {
-            code :"ShadCn"
-        },
-        {
-            code :"Material ui"
-        },
-        {
-            code :"Ai"
-        },
-        {
-            code :"nodeJs"
-        },
-        {
-            code:"Figma"
-        },
-        {
-            code:"React js"
-        },
-        {
-            code:"Next js"
-        },
 
-    ]
+
 
     return (
         <div className={'relative flex flex-col gap-10'}>
@@ -160,7 +180,18 @@ const Page = () => {
                         </div>
                         <div className="w-full max-w-[400px] z-20">
                             <label htmlFor="url" className="block text-sm font-medium text-gray-700 mb-1">Code :</label>
-                            <RexSelector selectorColor={'#ffff'} multiSelect={true} search={true} borderWidth={'1px'} width={'100%'}  labelColor={'#ffff'} value={'code'} array={codes} getValue={(e)=>setData({...dataForm,code:e})} KeyShowFn={(e)=>e.code}/>
+                            <RexSelector
+                                selectorColor={'#ffff'}
+                                multiSelect={true}
+                                search={true}
+                                borderWidth={'1px'}
+                                width={'100%'}
+                                labelColor={'#ffff'}
+                                value={'code'}
+                                array={codes}
+                                getValue={(e)=>setSelectorData(e)}
+                                KeyShowFn={(e)=>e.code}
+                            />
 
                         </div>
                         <div>

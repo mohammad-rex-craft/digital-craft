@@ -7,7 +7,7 @@ import { database } from '@/databese/firebase';
 export interface DataItem {
     name: string;
     url: string;
-    code:string[];
+    code:any[];
     detielsImg:string;
     frontImg: string;
     backImg: string;
