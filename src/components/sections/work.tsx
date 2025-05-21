@@ -16,7 +16,7 @@ const WorkSection = () => {
         router.push(`/project/${id}`);
     };
     return (
-        <div className={' w-full'}   style={{background: "linear-gradient(to bottom, #00042A 0%, #00042A 82%, #333331 100%);"}}>
+        <div className={' w-full'} id={'work'}  style={{background: "linear-gradient(to bottom, #00042A 0%, #00042A 82%, #333331 100%);"}}>
             <div className={'flex flex-col items-center px-12 sm:px-20 lg:px-32 pt-10 gap-2 md:gap-4 '}>
                 <p className={'text-white text-[12px] lg:text-[14px] xl:text-[16px]'}>OUR WORK</p>
                 <h3 className={'text-[20px] lg:text-[30px] xl:text-[40px] text-textColor text-center'}>Featured Website Design Projects</h3>

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AboutSections = () => {
     return(
-        <div className={'mt-20 p-12 sm:p-20 lg:p-32'} style={{background: "linear-gradient(to bottom, #333331 0%, #00042A 30%, #02062A 100%);"}}>
+        <div className={'mt-20 p-12 sm:p-20 lg:p-32'} id={'about'} style={{background: "linear-gradient(to bottom, #333331 0%, #00042A 30%, #02062A 100%);"}}>
             <div className={'w-full h-full flex '}>
                 <div className={'sm:w-1/2 w-full h-full flex flex-col gap-6'}>
                     <h3 className={'text-[20px] lg:text-[30px] xl:text-[40px] text-textColor text-center sm:text-left'}>Creative Web Agency Delivering Custom Solutions.</h3>

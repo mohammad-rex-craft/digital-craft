@@ -1,10 +1,10 @@
 import OurImageHolder from "@/components/OurImageHolder";
 
 
-const OurSection = () => {
+const ServicesSection = () => {
 
     return(
-        <div className={'bg-[#00042A]'}>
+        <div className={'bg-[#00042A]'} id={'services'}>
             <div className={'w-full '} style={{background: "linear-gradient(to bottom,rgba(1, 5, 42, 1) 0%,rgba(30, 126, 176, 0.45) 30%,rgba(30, 126, 176, 0.45) 66%,rgba(51, 51, 49, 1) 100%)"}}>
                <div className={'w-full h-full p-12 sm:p-20 lg:p-32 flex flex-col items-center gap-12'}>
                    <h3 className={'text-[20px] lg:text-[30px] xl:text-[40px] text-textColor font-[BoldItalicArt]'}>Our Web & App Development Services Will Help You Thrive</h3>
@@ -23,4 +23,4 @@ const OurSection = () => {
     )
 }
 
-export default OurSection
+export default ServicesSection

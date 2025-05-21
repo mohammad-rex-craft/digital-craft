@@ -61,9 +61,9 @@ const Nav = () => {
                         </div>
                         <MenuIcon props={'block sm:hidden w-8 h-8 mr-4 cursor-pointer'} onClick={()=>setIsOpen(true)}/>
                         <div className={' gap-3 md:gap-6 xl:gap-10 h-full items-center text-[15px] md:text-[18px] xl:text-[20px]  hidden sm:flex'}>
-                            <Link href={'/'} className={'hover:text-lightBlue '}>Work</Link>
-                            <Link href={'/'} className={'hover:text-lightBlue '}>About</Link>
-                            <Link href={'/'} className={'hover:text-lightBlue '}>Services</Link>
+                            <Link href={'#work'} className={'hover:text-lightBlue '}>Work</Link>
+                            <Link href={'#about'} className={'hover:text-lightBlue '}>About</Link>
+                            <Link href={'#services'}  className={'hover:text-lightBlue '}>Services</Link>
                             <Link href={'/auth/login'} className={'hover:text-lightBlue '}>Log in</Link>
 
                         </div>
@@ -77,10 +77,10 @@ const Nav = () => {
                 <div className={'w-full h-full flex flex-col p-10 gap-10 '}>
                     <CloseIcon props={' w-8 h-8 mr-4 cursor-pointer self-end stroke-white hover:stroke-darkBlue'} onClick={()=>setIsOpen(false)}/>
                     <div className={'flex flex-col gap-6 text-white items-center text-[15px] md:text-[18px] xl:text-[20px]'}>
-                        <Link href={'/'} className={'hover:text-lightBlue '}>Work</Link>
-                        <Link href={'/'} className={'hover:text-lightBlue '}>About</Link>
-                        <Link href={'/'} className={'hover:text-lightBlue '}>Services</Link>
-                        <Link href={'/'} className={'hover:text-lightBlue '}>Log in</Link>
+                        <Link onClick={()=>setIsOpen(false)} href={'#work'} className={'hover:text-lightBlue '}>Work</Link>
+                        <Link onClick={()=>setIsOpen(false)} href={'#about'} className={'hover:text-lightBlue '}>About</Link>
+                        <Link onClick={()=>setIsOpen(false)} href={'#services'} className={'hover:text-lightBlue '}>Services</Link>
+                        <Link onClick={()=>setIsOpen(false)} href={'/auth/login'} className={'hover:text-lightBlue '}>Log in</Link>
                         <div className={'p-2 text-[15px] md:text-[18px] xl:text-[20px]'}>
                             <div className={'border-2  border-lightBlue  hover:bg-lightBlue hover: rounded-full px-10 pt-1 pb-2'}><Link href={'/'}>Contact</Link></div>
                         </div>
